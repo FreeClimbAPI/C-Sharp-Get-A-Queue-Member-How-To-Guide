@@ -9,9 +9,9 @@ namespace GetQueueMember {
       return System.Environment.GetEnvironmentVariable("ACCOUNT_ID");
     }
 
-    public static string getFreeClimbAccountToken()
+    public static string getFreeClimbApiKeys()
     {
-      return System.Environment.GetEnvironmentVariable("AUTH_TOKEN");
+      return System.Environment.GetEnvironmentVariable("API_KEY");
     }
 
     static void Main (string[] args) {
@@ -19,7 +19,7 @@ namespace GetQueueMember {
       string callId = "";
       // Create FreeClimbClient object
       FreeClimbClient client = new FreeClimbClient (getFreeClimbAccountId (),
-        getFreeClimbAccountToken ());
+        getFreeClimbApiKeys ());
 
       // Invoke get method to retrieve queued call metadata
       QueueMember queueMember = client.getQueuesRequester.getQueueMember (queueId, callId);
